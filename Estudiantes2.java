@@ -1,42 +1,49 @@
-public class Estudiantes2 {
+class Estudiantes {
     private String nombre;
     private int edad;
     private double calificacion;
 
-    // Método setGet para recibir y desplegar el valor de un atributo
-    public <T> T setGet(String atributo, T valor) {
-        switch (atributo) {
-            case "nombre":
-                System.out.println("Cambiando y desplegando nombre: " + valor);
-                this.nombre = (String) valor;
-                return (T) this.nombre;
-            case "edad":
-                System.out.println("Cambiando y desplegando edad: " + valor);
-                this.edad = (int) valor;
-                return (T) Integer.valueOf(this.edad);
-            case "calificacion":
-                System.out.println("Cambiando y desplegando calificación: " + valor);
-                this.calificacion = (double) valor;
-                return (T) Double.valueOf(this.calificacion);
-            default:
-                return null;
-        }
+    public String setGetNombre(String nom) {
+        nombre = nom;
+        return nombre;
     }
 
+    // Método setGet para el atributo 'edad'
+    public int setGetEdad(int ed) {
+        edad = ed;
+        return edad;
+    }
+
+    // Método setGet para el atributo 'calificacion'
+    public double setGetCalificacion(double calif) {
+        calificacion = calif;
+        return calificacion;
+    }
+}
+
+public class Estudiantes2 {
     public static void main(String[] args) {
-        // Crear objeto Estudiante
-        Estudiantes2 estudiante = new Estudiantes2();
+        // Crear objetos Estudiante
+        Estudiantes est1 = new Estudiantes();
+        Estudiantes est2 = new Estudiantes();
+        Estudiantes est3 = new Estudiantes();
 
-        // Utilizar setGet para cambiar y desplegar el nombre
-        String nuevoNombre = estudiante.setGet("nombre", "Juan");
-        System.out.println("Nuevo Nombre: " + nuevoNombre);
+        // Desplegar datos utilizando setGet
+        System.out.println("Estudiante 1:");
+        System.out.println(est1.setGetNombre("Juan"));
+        System.out.println(est1.setGetEdad(20));
+        System.out.println(est1.setGetCalificacion(8.5));
+        System.out.println();
 
-        // Utilizar setGet para cambiar y desplegar la edad
-        int nuevaEdad = estudiante.setGet("edad", 25);
-        System.out.println("Nueva Edad: " + nuevaEdad);
+        System.out.println("Estudiante 2:");
+        System.out.println(est2.setGetNombre("Maria"));
+        System.out.println(est2.setGetEdad(22));
+        System.out.println(est2.setGetCalificacion(9.0));
+        System.out.println();
 
-        // Utilizar setGet para cambiar y desplegar la calificación
-        double nuevaCalificacion = estudiante.setGet("calificacion", 8.5);
-        System.out.println("Nueva Calificación: " + nuevaCalificacion);
+        System.out.println("Estudiante 3:");
+        System.out.println(est3.setGetNombre("Pedro"));
+        System.out.println(est3.setGetEdad(21));
+        System.out.println(est3.setGetCalificacion(7.8));
     }
 }
